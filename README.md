@@ -1,2 +1,2 @@
 # ios-custom
-IOS Custom UITableView and UICollectionView cells
+IOS Custom UITableView and UICollectionView Cells (Objective-C)
