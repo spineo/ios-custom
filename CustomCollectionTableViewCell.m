@@ -8,7 +8,6 @@
 
 #import "CustomCollectionTableViewCell.h"
 #import "GlobalSettings.h"
-#import "FieldUtils.h"
 
 @interface CustomCollectionTableViewCell()
 
@@ -39,11 +38,18 @@
     return self;
 }
 
-- (void)setAssocName:(NSString *)desc {
-    UILabel *assocDesc = [FieldUtils createLabel:desc xOffset:DEF_TABLE_X_OFFSET yOffset:DEF_Y_OFFSET width:self.contentView.bounds.size.width height:DEF_LABEL_HEIGHT];
-    [assocDesc setBackgroundColor:DARK_BG_COLOR];
+- (void)setName:(NSString *)desc {
+    UILabel *label = [[UILabel alloc] init];
+    
+    [label setText:desc];
+    [label setBackgroundColor:DARK_BG_COLOR];
+    [label setTextColor:LIGHT_TEXT_COLOR];
+    [label setTextAlignment:NSTextAlignmentLeft];
+    [label setFont:ITALIC_FONT];
+    
+    [label setFrame:CGRectMake(DEF_TABLE_X_OFFSET, DEF_Y_OFFSET, self.contentView.bounds.size.width, DEF_LABEL_HEIGHT)];
 
-    [self.contentView addSubview:assocDesc];
+    [self.contentView addSubview:label];
 }
 
 - (void)setNoLabelLayout {

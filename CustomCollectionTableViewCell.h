@@ -15,7 +15,7 @@ static NSString *CollectionViewCellIdentifier = @"CollectionViewCellIdentifier";
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic) CGFloat xOffset;
 
-- (void)setAssocName:(NSString *)desc;
+- (void)setName:(NSString *)desc;
 - (void)setNoLabelLayout;
 
 - (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index;
