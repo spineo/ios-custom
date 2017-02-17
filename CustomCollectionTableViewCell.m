@@ -48,21 +48,6 @@
 }
 
 - (void)addLabel:(UILabel *)label {
-    [label setFrame:CGRectMake(label.bounds.origin.x, label.bounds.origin.y, self.contentView.bounds.size.width, label.bounds.size.height)];
-    [self.contentView addSubview:label];
-}
-
-- (void)setName:(NSString *)name {
-    UILabel *label = [[UILabel alloc] init];
-    
-    [label setText:name];
-    [label setBackgroundColor:DARK_BG_COLOR];
-    [label setTextColor:LIGHT_TEXT_COLOR];
-    [label setTextAlignment:NSTextAlignmentLeft];
-    [label setFont:ITALIC_FONT];
-    
-    [label setFrame:CGRectMake(DEF_TABLE_X_OFFSET, DEF_Y_OFFSET, self.contentView.bounds.size.width, DEF_LABEL_HEIGHT)];
-
     [self.contentView addSubview:label];
 }
 

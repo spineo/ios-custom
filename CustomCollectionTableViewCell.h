@@ -16,7 +16,6 @@ static NSString *CollectionViewCellIdentifier = @"CollectionViewCellIdentifier";
 @property (nonatomic) CGFloat xOffset;
 @property (nonatomic, strong) UIColor *backgroundColor;
 
-- (void)setName:(NSString *)name;
 - (void)addLabel:(UILabel *)label;
 - (void)setNoLabelLayout;
 
