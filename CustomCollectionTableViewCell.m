@@ -17,9 +17,18 @@
 
 @implementation CustomCollectionTableViewCell
 
+// Set defaults
+//
+#define DEF_CUST_CELL_BGCOLOR    [UIColor blackColor]
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
+    
+    // Ensure that values are set
+    //
+    if (! _backgroundColor)
+        _backgroundColor = DEF_CUST_CELL_BGCOLOR;
     
     _layout = [[UICollectionViewFlowLayout alloc] init];
     [_layout setSectionInset: UIEdgeInsetsMake(DEF_COLLECTVIEW_INSET*2.0, DEF_FIELD_PADDING, DEF_COLLECTVIEW_INSET, DEF_FIELD_PADDING)];
@@ -30,7 +39,7 @@
 
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_layout];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
-    [self.collectionView setBackgroundColor:DARK_BG_COLOR];
+    [self.collectionView setBackgroundColor:_backgroundColor];
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
 
     [self.contentView addSubview:self.collectionView];
@@ -38,10 +47,15 @@
     return self;
 }
 
-- (void)setName:(NSString *)desc {
+- (void)addLabel:(UILabel *)label {
+    [label setFrame:CGRectMake(label.bounds.origin.x, label.bounds.origin.y, self.contentView.bounds.size.width, label.bounds.size.height)];
+    [self.contentView addSubview:label];
+}
+
+- (void)setName:(NSString *)name {
     UILabel *label = [[UILabel alloc] init];
     
-    [label setText:desc];
+    [label setText:name];
     [label setBackgroundColor:DARK_BG_COLOR];
     [label setTextColor:LIGHT_TEXT_COLOR];
     [label setTextAlignment:NSTextAlignmentLeft];
