@@ -12,7 +12,7 @@ static NSString *CollectionViewCellIdentifier = @"CollectionViewCellIdentifier";
 @interface CustomCollectionTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic) CGFloat tableCellHeight, xOffset;
+@property (nonatomic) CGFloat tableCellHeight, fieldPadding, collectViewInset, xOffset;
 @property (nonatomic, strong) UIColor *backgroundColor;
 
 - (void)addLabel:(UILabel *)label;
