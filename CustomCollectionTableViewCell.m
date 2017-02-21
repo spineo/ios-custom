@@ -48,7 +48,7 @@ CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
 
     [self.contentView addSubview:self.collectionView];
-    
+
     return self;
 }
 
