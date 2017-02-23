@@ -35,12 +35,7 @@ CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
     _fieldPadding     = DEF_CUST_FIELD_PADDING;
     _collectViewInset = DEF_CUST_COLLECTVIEW_INSET;
     
-    _layout = [[UICollectionViewFlowLayout alloc] init];
-    [_layout setSectionInset: UIEdgeInsetsMake(_collectViewInset * 2.0, _fieldPadding, _collectViewInset, _fieldPadding)];
-    [_layout setMinimumInteritemSpacing:_fieldPadding];
-    [_layout setItemSize: CGSizeMake(_tableCellHeight, _tableCellHeight)];
-    [_layout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
-    [_layout setHeaderReferenceSize:CGSizeMake(_fieldPadding, _fieldPadding)];
+    _layout = [self setFlowLayout:_collectViewInset padding:_fieldPadding cellWidth:_tableCellHeight cellHeight:_tableCellHeight];
 
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_layout];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
@@ -50,6 +45,17 @@ CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
     [self.contentView addSubview:self.collectionView];
 
     return self;
+}
+
+- (UICollectionViewFlowLayout *)setFlowLayout:(CGFloat)inset padding:(CGFloat)padding cellWidth:(CGFloat)width cellHeight:(CGFloat)height {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    [layout setSectionInset: UIEdgeInsetsMake(inset * 2.0, padding, inset, padding)];
+    [layout setMinimumInteritemSpacing:padding];
+    [layout setItemSize: CGSizeMake(width, height)];
+    [layout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
+    [layout setHeaderReferenceSize:CGSizeMake(padding, padding)];
+    
+    return layout;
 }
 
 - (void)addLabel:(UILabel *)label {
