@@ -15,7 +15,7 @@ static NSString *CollectionViewCellIdentifier = @"CollectionViewCellIdentifier";
 @property (nonatomic) CGFloat tableCellHeight, fieldPadding, collectViewInset, xOffset;
 @property (nonatomic, strong) UIColor *backgroundColor;
 
-//- (UICollectionViewFlowLayout *)setFlowLayout:(CGFloat)inset padding:(CGFloat)padding cellWidth:(CGFloat)width cellHeight:(CGFloat)height;
+- (void)setCollectionView:(UICollectionViewFlowLayout *)layout backgroundColor:(UIColor *)backgroundColor;
 - (void)addLabel:(UILabel *)label;
 - (void)setNoLabelLayout;
 - (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index;

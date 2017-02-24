@@ -36,15 +36,21 @@ CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
     _collectViewInset = DEF_CUST_COLLECTVIEW_INSET;
     
     _layout = [self setFlowLayout:_collectViewInset padding:_fieldPadding cellWidth:_tableCellHeight cellHeight:_tableCellHeight];
-
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_layout];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
-    [self.collectionView setBackgroundColor:_backgroundColor];
-    [self.collectionView setShowsHorizontalScrollIndicator:NO];
-
-    [self.contentView addSubview:self.collectionView];
+    [self setCollectionView:_layout backgroundColor:_backgroundColor];
 
     return self;
+}
+
+- (void)setCollectionView:(UICollectionViewFlowLayout *)layout backgroundColor:(UIColor *)backgroundColor {
+    if (self.collectionView)
+        [self.collectionView removeFromSuperview];
+
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
+    [self.collectionView setBackgroundColor:backgroundColor];
+    [self.collectionView setShowsHorizontalScrollIndicator:NO];
+    
+    [self.contentView addSubview:self.collectionView];
 }
 
 - (UICollectionViewFlowLayout *)setFlowLayout:(CGFloat)inset padding:(CGFloat)padding cellWidth:(CGFloat)width cellHeight:(CGFloat)height {
