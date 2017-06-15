@@ -20,7 +20,7 @@
 //
 #define DEF_CUST_CELL_BGCOLOR    [UIColor blackColor]
 
-CGFloat const DEF_CUST_TABLE_CELL_HEIGHT = 44.0;
+CGFloat const DEF_CUST_TABLE_CELL_HEIGHT = 66.0;
 CGFloat const DEF_CUST_FIELD_PADDING     = 5.0;
 CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
 
