@@ -16,26 +16,16 @@
 
 @implementation CustomCollectionTableViewCell
 
-// Custom defaults
-//
-#define DEF_CUST_CELL_BGCOLOR    [UIColor blackColor]
 
-CGFloat const DEF_CUST_TABLE_CELL_HEIGHT = 72.0;
-//CGFloat const DEF_CUST_FIELD_PADDING     = 5.0;
-//CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
-CGFloat const DEF_CUST_FIELD_PADDING     = 5.0;
-CGFloat const DEF_CUST_COLLECTVIEW_INSET = 0.0;
-
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier cellHeight:(CGFloat)cellHeight collectViewInset:(CGFloat)collectViewInset padding:(CGFloat)padding backgroundColor:(UIColor *)backgroundColor {
     if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
     
     // Ensure that values are set
     //
-    _backgroundColor  = DEF_CUST_CELL_BGCOLOR;
-    _tableCellHeight  = DEF_CUST_TABLE_CELL_HEIGHT;
-    _fieldPadding     = DEF_CUST_FIELD_PADDING;
-    _collectViewInset = DEF_CUST_COLLECTVIEW_INSET;
+    _backgroundColor  = backgroundColor;
+    _tableCellHeight  = cellHeight;
+    _fieldPadding     = padding;
+    _collectViewInset = collectViewInset;
     
     _layout = [self setFlowLayout:_collectViewInset padding:_fieldPadding cellWidth:_tableCellHeight cellHeight:_tableCellHeight];
     [self setCollectionView:_layout backgroundColor:_backgroundColor];
