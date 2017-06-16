@@ -20,9 +20,11 @@
 //
 #define DEF_CUST_CELL_BGCOLOR    [UIColor blackColor]
 
-CGFloat const DEF_CUST_TABLE_CELL_HEIGHT = 66.0;
+CGFloat const DEF_CUST_TABLE_CELL_HEIGHT = 72.0;
+//CGFloat const DEF_CUST_FIELD_PADDING     = 5.0;
+//CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
 CGFloat const DEF_CUST_FIELD_PADDING     = 5.0;
-CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
+CGFloat const DEF_CUST_COLLECTVIEW_INSET = 0.0;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -55,7 +57,7 @@ CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
 
 - (UICollectionViewFlowLayout *)setFlowLayout:(CGFloat)inset padding:(CGFloat)padding cellWidth:(CGFloat)width cellHeight:(CGFloat)height {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    [layout setSectionInset: UIEdgeInsetsMake(inset * 2.0, padding, inset, padding)];
+    [layout setSectionInset:UIEdgeInsetsMake(inset * 2.0, padding, inset, padding)];
     [layout setMinimumInteritemSpacing:padding];
     [layout setItemSize: CGSizeMake(width, height)];
     [layout setScrollDirection: UICollectionViewScrollDirectionHorizontal];
@@ -86,9 +88,9 @@ CGFloat const DEF_CUST_COLLECTVIEW_INSET = 20.0;
     [self.collectionView setFrame:CGRectMake(_xOffset, self.contentView.bounds.origin.y, self.contentView.bounds.size.width, self.contentView.bounds.size.height)];
     
     CGFloat yCrop  = (self.contentView.bounds.size.height - _tableCellHeight) / 2.0;
-    CGFloat offset = _fieldPadding * 2.0;
+    //CGFloat offset = _fieldPadding * 2.0;
 
-    [self.imageView setFrame:CGRectMake(offset, self.contentView.bounds.origin.y + offset, _tableCellHeight, self.contentView.bounds.size.height)];
+    [self.imageView setFrame:CGRectMake(_fieldPadding, self.contentView.bounds.origin.y + 0.0, _tableCellHeight, self.contentView.bounds.size.height)];
     self.imageView.bounds = CGRectInset(self.imageView.frame, 0.0, yCrop);
 }
 
